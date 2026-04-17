@@ -1,327 +1,36 @@
-# 🎯 VidJobs - Цифровая платформа для выполнения задач
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/yourusername/vidjobs)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org)
-[![Node](https://img.shields.io/badge/node-18+-green.svg)](https://nodejs.org)
+## Getting Started
 
-> Умная платформа, которая соединяет задачи и мастеров через видео-описание и AI генерированные техзадания
+First, run the development server:
 
-## 🚀 Быстрый старт
-
-### Требования
-- Python 3.10+
-- Node.js 18+
-- PostgreSQL или SQLite
-- Git
-
-### Установка (локально)
-
-#### 1. Клонировать репозиторий
 ```bash
-git clone https://github.com/yourusername/vidjobs.git
-cd vidjobs
-```
-
-#### 2. Настройка Backend (Django)
-```bash
-cd backend
-
-# Создать виртуальное окружение
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# или
-venv\Scripts\activate  # Windows
-
-# Установить зависимости
-pip install -r requirements.txt
-
-# Миграции БД
-python manage.py migrate
-
-# Создать суперпользователя (администратор)
-python manage.py createsuperuser
-
-# Запустить сервер
-python manage.py runserver
-```
-
-Backend будет доступен на: **http://localhost:8000**
-
-#### 3. Настройка Frontend (Next.js)
-```bash
-cd ../web
-
-# Установить зависимости
-npm install
-
-# Создать .env.local файл
-cp .env.example .env.local
-
-# Запустить dev сервер
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Frontend будет доступен на: **http://localhost:3000**
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
----
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## 📁 Структура проекта
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-```
-vidjobs/
-├── backend/                 # Django REST API
-│   ├── api/                # Основное приложение
-│   │   ├── models.py       # Модели данных
-│   │   ├── views.py        # API endpoints
-│   │   ├── serializers.py  # JSON сериализаторы
-│   │   └── migrations/     # Миграции БД
-│   ├── config/             # Настройки Django
-│   ├── manage.py           # Управление
-│   └── requirements.txt    # Зависимости Python
-│
-├── web/                    # Next.js Frontend
-│   ├── app/               # Страницы приложения
-│   │   ├── role-selection/ # Выбор роли
-│   │   ├── register/      # Регистрация
-│   │   ├── create-job/    # Создание заказа
-│   │   ├── jobs/          # Лента заказов
-│   │   ├── executor/[id]/ # Профиль исполнителя
-│   │   └── dashboard/     # Главная панель
-│   ├── components/        # React компоненты
-│   ├── lib/              # Утилиты
-│   ├── package.json      # NPM зависимости
-│   └── tsconfig.json     # TypeScript
-│
-├── ARCHITECTURE.md        # Детальная архитектура
-├── API_DOCUMENTATION.md   # API документация
-└── README.md             # Этот файл
-```
+## Learn More
 
----
+To learn more about Next.js, take a look at the following resources:
 
-## 🎨 Основные возможности
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### 📋 Для Заказчиков
-- ✅ Создание заказов через текст, видео или голос
-- ✅ AI автоматически генерирует техническое задание
-- ✅ Просмотр предложений от исполнителей
-- ✅ Выбор лучшего исполнителя
-- ✅ Прямой чат с исполнителем
-- ✅ Безопасные платежи через платформу
-- ✅ Оценка работы и рейтинг исполнителей
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-### 🛠️ Для Исполнителей
-- ✅ Просмотр всех доступных заказов
-- ✅ Фильтрация по категориям, бюджету и геолокации
-- ✅ Подача предложений на интересующие заказы
-- ✅ Управление профилем и портфолио
-- ✅ Верификация документов
-- ✅ Система рейтинга (влияет на видимость)
-- ✅ Электронный кошелек и вывод заработков
+## Deploy on Vercel
 
-### 💰 Для Платформы
-- ✅ Комиссия 5% от суммы заказа
-- ✅ Первые 3 месяца без комиссии (привлечение)
-- ✅ Безопасное хранение платежей
-- ✅ Гарантия выполнения работ
-- ✅ Система разрешения конфликтов
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
----
-
-## 🔐 Безопасность и верификация
-
-### Уровни защиты
-1. **SMS Верификация** - каждый пользователь подтверждает номер
-2. **Email Верификация** - проверка адреса электронной почты
-3. **Документ ID** - исполнители загружают удостоверение
-4. **Ручная проверка** - администратор проверяет документы
-5. **История операций** - все платежи и действия записываются
-
-### Гарантии
-- 🔒 Все финансовые операции защищены
-- 🔒 Средства хранятся в эскроу до завершения работы
-- 🔒 Возврат средств гарантирован в случае конфликта
-- 🔒 Все данные зашифрованы по протоколу HTTPS
-
----
-
-## 💡 Примеры использования
-
-### Сценарий 1: Заказчик размещает видео-заказ
-```
-1. Заказчик нажимает "Создать заказ"
-2. Выбирает способ описания: видео (макс 30 сек)
-3. Снимает видео: "Нужно перенести стену в квартире"
-4. AI обрабатывает и генерирует ТЗ:
-   "Требуется выполнение строительных работ:
-    перенос несущей стены, укрепление...
-    Срок: 1 неделя, Бюджет: 150,000₸"
-5. Заказчик подтверждает
-6. Заказ публикуется на платформе
-7. Исполнители видят и подают предложения
-```
-
-### Сценарий 2: Исполнитель находит работу
-```
-1. Исполнитель открывает ленту заказов
-2. Фильтрует: категория = "Строительство", 100км от меня
-3. Видит заказ: "Переносина стены - 150,000₸"
-4. Просматривает детали и отзывы заказчика
-5. Подает предложение: 140,000₸ (на 10,000₸ дешевле)
-6. Заказчик связывается через чат
-7. Обсуждают детали
-8. Заказчик принимает предложение
-9. Исполнитель начинает работу
-10. После завершения - оплата через платформу
-```
-
----
-
-## 📊 Технологии
-
-### Backend
-```
-Backend: Django 4.2 + Django REST Framework
-Database: PostgreSQL / SQLite
-Task Queue: Celery + Redis
-File Storage: AWS S3 / Local
-Authentication: JWT (djangorestframework-simplejwt)
-```
-
-### Frontend
-```
-Framework: Next.js 14 + React 18
-Language: TypeScript
-Styling: Tailwind CSS
-HTTP Client: Axios
-State Management: React Hooks + Context
-```
-
-### Deployment
-```
-Containerization: Docker & Docker Compose
-CI/CD: GitHub Actions
-Hosting: AWS / DigitalOcean
-Web Server: Nginx
-```
-
----
-
-## 🚦 Roadmap
-
-### Q2 2024 (MVP Launch)
-- [x] Базовая функциональность
-- [x] Система рейтинга
-- [x] Платежи и комиссии
-- [x] Верификация пользователей
-- [ ] Обработка видео/голоса (AI)
-
-### Q3 2024 (Мобильное приложение)
-- [ ] iOS приложение (React Native)
-- [ ] Android приложение (React Native)
-- [ ] Push-уведомления
-- [ ] Оффлайн режим
-
-### Q4 2024 (Масштабирование)
-- [ ] Расширение на другие города
-- [ ] Интеграция платежных систем (Kaspi, Jusan)
-- [ ] API для сторонних приложений
-- [ ] Корпоративные аккаунты
-
-### Q1 2025 (Интеграции)
-- [ ] CRM система для компаний
-- [ ] Программа партнерства
-- [ ] Аналитика и отчеты
-- [ ] Интеграция с бухгалтерскими системами
-
----
-
-## 🤝 Вклад в проект
-
-Мы приветствуем вклады! Пожалуйста:
-
-1. Fork репозиторий
-2. Создайте branch для фич (`git checkout -b feature/AmazingFeature`)
-3. Commit изменения (`git commit -m 'Add some AmazingFeature'`)
-4. Push в branch (`git push origin feature/AmazingFeature`)
-5. Откройте Pull Request
-
----
-
-## 📝 Лицензия
-
-Этот проект лицензирован под MIT License - см. [LICENSE](LICENSE) файл для деталей.
-
----
-
-## 👥 Авторы
-
-- **Основатель**: [Your Name]
-- **Backend Lead**: [Developer Name]
-- **Frontend Lead**: [Developer Name]
-
----
-
-## 📞 Поддержка и контакты
-
-- 📧 Email: support@vidjobs.kz
-- 🌐 Website: https://vidjobs.kz
-- 💬 Discord: https://discord.gg/vidjobs
-- 📱 Telegram: https://t.me/vidjobs_official
-- 📚 Документация: https://docs.vidjobs.kz
-
----
-
-## 💬 Часто задаваемые вопросы
-
-**Q: Как начать работать в системе?**  
-A: Зарегистрируйтесь, выберите роль (заказчик/исполнитель), верифицируйте номер телефона.
-
-**Q: Какая комиссия платформы?**  
-A: 5% от суммы заказа. Первые 3 месяца - бесплатно!
-
-**Q: Как гарантирована безопасность платежей?**  
-A: Средства хранятся в эскроу до завершения работы. Полная защита обеих сторон.
-
-**Q: Можно ли работать как физ.лицо?**  
-A: Да! Нет необходимости в ИП или регистрации. Платформа поддерживает самозанятость.
-
-**Q: Как вывести заработанные деньги?**  
-A: Через кошельки (Kaspi, Jusan) или банковский перевод. Минимум - 10,000₸.
-
----
-
-## 🎓 Ресурсы для обучения
-
-- [Документация архитектуры](ARCHITECTURE.md) - полное описание системы
-- [API Документация](API_DOCUMENTATION.md) - все endpoints и примеры
-- [Developer Guide](docs/DEVELOPER.md) - гайд для разработчиков
-- [Database Schema](docs/DATABASE.md) - описание БД
-
----
-
-## 📈 Статистика
-
-- 🌟 Звёзд на GitHub: ![Stars](https://img.shields.io/github/stars/yourusername/vidjobs?style=flat-square)
-- 👥 Активных пользователей: 1,250+
-- ✅ Выполненных заказов: 5,000+
-- 💰 Объём сделок: 75,000,000₸+
-
----
-
-## 🎯 Миссия
-
-**Создать прозрачный, справедливый и безопасный рынок услуг, где каждый может найти работу или нанять специалиста за считанные минуты.**
-
-Наша цель:
-- ✅ Легализация самозанятости
-- ✅ Повышение прозрачности рынка
-- ✅ Создание рабочих мест
-- ✅ Цифровизация быт услуг
-
----
-
-**Сделано с ❤️ для казахского рынка услуг**
-
-*Last Updated: April 15, 2024*
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
